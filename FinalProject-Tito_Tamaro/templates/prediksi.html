@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Machine Learning Model</title>
+  </head>
+  <body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">
+          <img src="{{url_for('static', filename='credit3.png')}}" width="30" height="30" alt="" loading="lazy">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="http://127.0.0.1:5000/">Home</a>
+            <a class="nav-link active" href="http://127.0.0.1:5000/predict">Predict <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="http://127.0.0.1:5000/datviz">Data Visualization</a>
+            <a class="nav-link" href="http://127.0.0.1:5000/data">Data</a>
+          </div>
+        </div>
+      </nav>
+      <br>
+      <br>
+
+      <div class="alert alert-primary" role="alert">
+        <h1>Prediction Form</h1>
+    </div>
+
+      <form method="POST", action="http://127.0.0.1:5000/result">
+          <pre>Revolving Utilization of Unsecured Lines             : <input type="number" step="any" name="RevolvingUtilizationOfUnsecuredLines" style="width: 200px" required=True></pre>
+          <pre>Age                                                  : <input type="number" step="any" name="age" max="200" style="width: 200px" required=True></pre>
+          <pre>Number of Time 30-59 Days Past Due                   : <input type="number" step="any" name="NumberOfTime30-59DaysPastDueNotWorse" style="width: 200px" required=True></pre>
+          <pre>Debt Ratio                                           : <input type="number" step="any" name="DebtRatio" style="width: 200px" required=True></pre>
+          <pre>Monthly Income                                       : <input type="number" step="any" name="MonthlyIncome" style="width: 200px" required=True></pre>
+          <pre>Number of Open Credit Lines and Loans                : <input type="number" step="any" name="NumberOfOpenCreditLinesAndLoans" style="width: 200px" required=True></pre>
+          <pre>Number of Times 90 Days Late                         : <input type="number" step="any" name="NumberOfTimes90DaysLate" style="width: 200px" required=True></pre>
+          <pre>Number Real Estate Loans or Lines                    : <input type="number" step="any" name="NumberRealEstateLoansOrLines" style="width: 200px" required=True></pre>
+          <pre>Number of Time 60-89 Days Past Due                   : <input type="number" step="any" name="NumberOfTime60-89DaysPastDueNotWorse" style="width: 200px" required=True></pre>
+          <pre>Number of Dependents                                 : <input type="number" step="any" name="NumberOfDependents" style="width: 200px" required=True></pre>
+
+
+          <br>
+          <input class="btn btn-dark" type="submit" value="Predict!">
+      </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>

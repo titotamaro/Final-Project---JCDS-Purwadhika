@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Credit Scoring</title>
+  </head>
+  <body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">
+          <img src="{{url_for('static', filename='credit3.png')}}" width="30" height="30" alt="" loading="lazy">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" href="http://127.0.0.1:5000/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="http://127.0.0.1:5000/predict">Predict</a>
+            <a class="nav-link" href="http://127.0.0.1:5000/datviz">Data Visualization</a>
+            <a class="nav-link" href="http://127.0.0.1:5000/data">Data</a>
+          </div>
+        </div>
+      </nav>
+    
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4"><b>Credit Scoring</b></h1>
+          <p class="lead">A credit scoring model is a risk management tool that assesses the credit worthiness of a loan applicant by estimating her/his probability of default based on historical data. It uses numerical tools to rank order cases using data integrated into a single value that attempts to measure risk or credit worthiness.</p>
+        </div>
+      </div>
+
+      <div class="container">
+          <div class="row text-left">
+              <div class="col">
+                  <h1>Features Information</h1>
+              </div>
+          </div>
+          
+          <table class="table table-hover table-dark">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Variable Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Revolving Utilization of Unsecured Lines</td>
+                <td>Total balance on credit cards and personal lines of credit except real estate and no installment debt like car loans divided by the sum of credit limits</td>
+                <td>percentage</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Age</td>
+                <td>Age of borrower in years</td>
+                <td>integer</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Number of Time 30-59 Days Past Due</td>
+                <td>Number of times borrower has been 30-59 days past due but no worse in the last 2 years.</td>
+                <td>integer</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Debt Ratio</td>
+                <td>Monthly debt payments</td>
+                <td>percentage</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>Monthly Income</td>
+                <td>Monthly Income</td>
+                <td>integer</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>Number of Open Credit Lines and Loans</td>
+                <td>Number of Open loans (installment like car loan or mortgage) and Lines of credit (e.g. credit cards)</td>
+                <td>integer</td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>Number of Times 90 Days Late</td>
+                <td>Number of times borrower has been 90 days or more past due.</td>
+                <td>integer</td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td>Number Real Estate Loans or Lines</td>
+                <td>Number of mortgage and real estate loans including home equity lines of credit</td>
+                <td>integer</td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td>Number of Time 60-89 Days Past Due</td>
+                <td>Number of times borrower has been 60-89 days past due but no worse in the last 2 years.</td>
+                <td>integer</td>
+              </tr>
+              <tr>
+                <th scope="row">10</th>
+                <td>Number of Dependents</td>
+                <td>Number of dependents in family excluding themselves (spouse or children etc.)</td>
+                <td>integer</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h1>Risk Category</h1>
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Category</th>
+                <th scope="col">Means</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-danger">
+                <th scope="row">1</th>
+                <td>Poor</td>
+                <td>Well below average, demonstrates to lenders that you are a risky borrower</td>
+              </tr>
+              <tr class="table-warning">
+                <th scope="row">2</th>
+                <td>Fair</td>
+                <td>Below average, many lenders will approve loans</td>
+              </tr>
+              <tr class="table-secondary">
+                <th scope="row">3</th>
+                <td>Good</td>
+                <td>Near or slightly above average, Most lenders consider this a good score</td>
+              </tr>
+              <tr class="table-primary">
+                <th scope="row">4</th>
+                <td>Very Good</td>
+                <td>Above average, demonstrates to lenders that you are a very dependable borrower</td>
+              </tr>
+              <tr class="table-success">
+                <th scope="row">5</th>
+                <td>Exceptional</td>
+                <td>Well above average, demonstrates to lenders that you are an exceptional borrower</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
