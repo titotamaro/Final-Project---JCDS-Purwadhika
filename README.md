@@ -16,12 +16,8 @@ Final Project Title: Personal Loan Default Risk Management with Credit Scoring
 
 <h2>Conclusion:</h2>
 
-1. Diperoleh pemodelan dengan AUC ROC sebesar 0.854 dengan tingkat precision 0.54, algoritma yang digunakan adalah XGBoost Classifier dengan Hyper Tuning dimana parameter yang digunakan adalah : <br>
+1. Diperoleh pemodelan dengan AUC ROC sebesar 0.87 algoritma yang digunakan adalah XGBoost Classifier dengan default parameter <br>
 
-- N_estimator : 1000 <br>
-- Min_child_weight : 1 <br>
-- Max depth : 10 <br>
-- Learning Rate : 0.03162277660168379 <br>
 2. Pengelompokkan data menjadi 5 kelompok resiko yaitu poor, fair, good, very good dan exceptional dengan interval probabilitas sebagai berikut :<br>
 
 - Exceptional  	  (proba : 0 - 0.000561) 
